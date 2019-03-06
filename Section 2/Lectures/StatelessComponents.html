@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Developer Environment needs these 3 links so the browser can understand REACT and JSX: -->
+
+<!-- REACT LIBRARY -->
+<script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+
+<!-- REACT DOM LIBRARY -->
+<script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+
+<!-- BABEL LIBRARY, so you can deal with jsx that we will use in REACT
+Babel takes JSX and turns it into pure javascript -->
+<!-- <script src="https://cndjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+   <title>Let's React</title>
+ </head>
+ <body>
+
+
+
+   <!-- Choose a location within the DOM that we want to render REACT content
+ In this case we are adding "Hello World" to it so it appears on the web page -->
+<!-- DESIGNATED LOCATION TO INSERT REACT CONTENT -->
+<div id="app">
+  React has not rendered yet
+  </div>
+
+<!-- USE ANOTHER SCRIPT TAG FOR JAVASCRIPT FOR THE REACT CONTENT, NORMALLY YOU WOULD PUT THIS IN A SEPARATE JS FILE AND THEN LINK IT TO THIS HTML FILE -->
+<!-- RENDER REACT TO THE DOM BY USING A METHOD THAT TAKES 2 ARGUMENTS: THE "WHAT" OF REACT & THE "WHERE" OF REACT     (REACT WHAT, REACT WHERE) -->
+<script type="text/babel">
+
+// We can use a variable that is assigned a function to render things using React
+  var ColorSpectrum = function(){
+    return (<h1>Green, Blue, Purple</h1>);
+  };
+
+  ReactDOM.render(
+
+// The "WHAT"
+// to add the content of a variable that was assigned a function,
+// you must include it in a closing tag syntax
+// the function will run and output whatever it is returning
+  <ColorSpectrum/>,
+
+// The WHERE, where we will put Hello World? In the div that has the id of "app"
+  document.getElementById("app")
+  );
+
+</script>
+
+
+ </body>
+ </html>
