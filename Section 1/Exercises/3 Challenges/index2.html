@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+ <html lang="en">
+
+ <!-- 3 Challenges: -->
+  <!-- 1) Render a paragraph to the DOM with content "I am a paragraph" -->
+  <!-- 2) Render an anchor tag that links to the google home page -->
+ <!-- 3) Render an unordered list with 3 list items with things you need to do today -->
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Developer Environment needs these 3 links so the browser can understand REACT and JSX: -->
+
+<!-- REACT LIBRARY -->
+<script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+
+<!-- REACT DOM LIBRARY -->
+<script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+
+<!-- BABEL LIBRARY, so you can deal with jsx that we will use in REACT -->
+<!-- <script src="https://cndjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+   <title>Let's React</title>
+ </head>
+ <body>
+
+<!-- A place to add content to -->
+   <div id ="app">
+    React did not render
+   </div>
+
+   <div id ="app2">
+    React did not render
+   </div>
+
+   <div id ="app3">
+    React did not render
+   </div>
+
+   <script type="text/babel">
+
+    ReactDOM.render(
+
+// what you want to add
+      <p>
+        I am a paragraph
+      </p>,
+
+// where to add it
+      document.getElementById("app")
+
+    );
+
+
+    ReactDOM.render(
+      <a href = "https://www.google.com/">Google</a>,
+      document.getElementById("app2")
+    );
+
+    ReactDOM.render(
+
+      <ul>
+        <li>Learn React</li>
+        <li>Wash & Dry Laundry</li>
+        <li>Clean room</li>
+      </ul>,
+
+      document.getElementById("app3")
+    );
+
+
+   </script>
+
+
+
+
+ </body>
+ </html>
