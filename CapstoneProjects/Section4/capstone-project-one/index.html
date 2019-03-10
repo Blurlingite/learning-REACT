@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+  <title>FriendLy</title>
+</head>
+<body>
+
+<!--  REACT will be rendered at this div with an id of "app" -->
+  <div id="app">React has not rendered yet</div>
+
+<!-- Need this babel script tag so you can turn the REACT code you will
+ put here into plain javascript that the browser can understand -->
+  <script type="text/babel">
+
+  // Here is the layout of Components:
+
+  // FriendLy Complex Component
+    // Avatar Component
+    // Username Component
+
+    // GetConnected Complex Component
+      // Like Component
+      // Share Component
+      // Add Component
+
+
+  // Note the GetConnected complex Component has 3 components in it, the Like, Share, and Add components
+
+
+
+// This allows you to render things to the REACT DOM, not the real dom
+// REACT can only read from the real DOM not write to it, so it writes to the REACT DOM instead
+// ReactDOM.render will let you add REACT code so you can see it on the webpage
+    ReactDOM.render(
+
+    // REACT content, our FriendLy component that will contain the other components
+    <FriendLy/>,
+    document.getElementById("app")
+
+
+    )
+
+
+  </script>
+
+</body>
+</html>

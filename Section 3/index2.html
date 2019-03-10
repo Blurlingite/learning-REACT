@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Styling Components</title>
+</head>
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+    var Red = function() {
+
+      // A javascript object that will be used to apply styling (CSS) to our component
+
+      // similar to CSS except:
+      // no semicolons, use commas instead to separate attributes
+      // no px after the numbers 50 and 150. It already knows to use pixels?
+      // attributes that are normally 2 words or more and/or have hyphens are one word in camelcase
+      // when assigns values that are words, like "red", it must be in quotes
+
+      var redStyle = {
+        height: 50,
+        width: 150,
+        backgroundColor: "red"
+      }
+      return(
+        // we use {} and put the variable that has the styling we want to apply, similar to EL in Java
+        <h1 style={redStyle}>Red</h1>
+      );
+    }
+    var Orange = function() {
+      var orangeStyle = {
+        height: 50,
+        width: 150,
+        backgroundColor: "orange"
+      }
+      return(
+        <h1 style={orangeStyle}>Orange</h1>
+      );
+    }
+    var Yellow = function() {
+      var yellowStyle = {
+        height: 50,
+        width: 150,
+        backgroundColor: "yellow"
+      }
+      return(
+        <h1 style={yellowStyle}>Yellow</h1>
+      );
+    }
+    var Green = function() {
+      var greenStyle = {
+        height: 50,
+        width: 150,
+        backgroundColor: "green"
+      }
+      return(
+        <h1 style={greenStyle}>Green</h1>
+      );
+    }
+
+    var Blue = function(){
+      // A javascript object that will be used to apply styling (CSS) to our component
+      var blueStyle = {
+        height: 50,
+        width: 150,
+        backgroundColor: "blue"
+
+      }
+
+      return(
+        <h1 style={blueStyle}>Blue</h1>
+      );
+    }
+
+    var Indigo = function(){
+
+      var indigoStyle = {
+        height: 50,
+        width: 150,
+        backgroundColor: "indigo"
+      }
+
+      return(
+        <h1 style={indigoStyle}>Indigo</h1>
+      );
+
+
+    }
+
+
+    var Purple = function(){
+
+      var purpleStyle = {
+        height: 50,
+        width: 150,
+        backgroundColor: "purple"
+      }
+
+      return(
+        <h1 style={purpleStyle}>Purple</h1>
+      )
+
+    }
+
+
+
+    ReactDOM.render(
+      // REACT WHAT
+      <div>
+        <Red/>
+        <Orange/>
+        <Yellow/>
+        <Green/>
+        <Blue/>
+        <Indigo/>
+        <Purple/>
+
+      </div>,
+      document.getElementById("app")
+    );
+  </script>
+</body>
+</html>
