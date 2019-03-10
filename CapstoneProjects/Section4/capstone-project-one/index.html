@@ -12,6 +12,12 @@
   <!-- BABEL LIBRARY -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
 
+  <!-- Font Awesome library
+      Type in font awesome cdn into google and click on BootsrapCDN to find this link
+      This is what will interpret code for icons (like the "Share" icon) in our body so we
+      can use icons on our webpage -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <title>FriendLy</title>
 </head>
 <body>
@@ -35,13 +41,121 @@
       // Add Component
 
 
-  // Note the GetConnected complex Component has 3 components in it, the Like, Share, and Add components
+  // Note the GetConnected Complex Component has 3 components in it, the Like, Share, and Add components
 
-
+// We will use stateless functional components b/c that is what you should always use as much as possible
+// The only reasons you would use stateful components (classes) is when you will use the "this" keyword or you
+// will use Lifecycle methods.
+// So when you don't need the extra benefits of classes, use stateless func. components
 
 // This allows you to render things to the REACT DOM, not the real dom
 // REACT can only read from the real DOM not write to it, so it writes to the REACT DOM instead
 // ReactDOM.render will let you add REACT code so you can see it on the webpage
+
+
+
+
+// FriendLy component
+// we use a div in here so we can return multiple components, because REACT only lets you return 1 at a time
+function FriendLy(){
+
+  return(
+    <div>
+      <Avatar/>
+      <Username/>
+      <GetConnected/>
+    </div>
+  );
+
+}
+
+
+
+
+
+// Avatar component - provide a profile image
+// Since the img tag is the only thing we are returning, we don't need to put it in a div parent element
+function Avatar(){
+
+  return(
+    <img src="https://media.licdn.com/dms/image/C5603AQFhc_leBnmflQ/profile-displayphoto-shrink_200_200/0?e=1555545600&v=beta&t=dTzTPcijYZ7OqCyNJbcMM39p2pLaFcRgOHp73LIFwQw" alt="profile pic"/>
+  );
+
+}
+
+
+
+
+
+// Username component - for the profile name
+function Username(){
+
+  return(
+    <h1>Profile Name</h1>
+  );
+
+}
+
+
+
+
+
+// GetConnected component - so the user can like, share, or add
+function GetConnected(){
+
+  return(
+    <div>
+      <Like/>
+      <Share/>
+      <Add/>
+    </div>
+  );
+
+}
+
+
+
+
+
+// Like component - part 1 of 3 of GetConnected component
+// Add a "Like" image, a thumbs up image
+// we will use https://fontawesome.com/icons?d=gallery for this
+// Just search for it in the search bar
+function Like() {
+  return(
+    <i className="fa fa-thumbs-o-up"></i>
+  );
+}
+
+
+
+
+
+// <i className="fas fa-share"></i>
+// Share component - part 2 of 3 of GetConnected component
+function Share(){
+
+  return(
+    <i className="fa fa-share" aria-hidden="true"></i>
+  );
+
+}
+
+
+
+
+
+// Add component - part 3 of 3 of GetConnected component
+function Add(){
+
+  return(
+    <i className="fa fa-users"></i>
+  );
+
+}
+
+
+
     ReactDOM.render(
 
     // REACT content, our FriendLy component that will contain the other components
