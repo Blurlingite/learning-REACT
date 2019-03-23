@@ -20,8 +20,31 @@
 
   <!-- JAVASCRIPT -->
   <script type="text/babel">
+
+
+// stateless functional component with a props parameter, you should use "props" and not anything else
+// the props will be a javascript object, we will give props a "name" fields and thats why we have props.name
+var Person = function(props){
+  return (
+    <h1>Hi, {props.name}</h1>
+  );
+}
+
+// We assign the name field "Vishnu" so when it goes to
+// var Person above, it will print out "Hi, Vishnu" in the browser
+// Anything after "Person" here will be passed into the function in
+// var Person as the "props" parameter
+// we can put multiple Person components in a div and
+// have the browser run the code in the var Person multiple times
+// This will say "Hi" to 4 people
     ReactDOM.render(
-      <h1>Hello World</h1>,
+      <div>
+      <Person name="Kam"/>
+      <Person name="Dan"/>
+      <Person name="Zeinah"/>
+      <Person name="Jun"/>
+      </div>
+      ,
       document.getElementById("app")
     );
   </script>
