@@ -1,0 +1,92 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Boiler Plate Code</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+    var FamilyList = function(props){
+      // assign props.siblings ro a variable so you don't have to keep using props.siblngs
+      var siblings = props.siblings
+
+
+    // the filter() takes in a function and performs that function's code on each element in the array
+    // This will give us a new array with only the siblings that are female (the objects that have the female field set to true)
+       // siblings = siblings.filter(function(person){
+        // if the element has female set to true, return it into the new array
+        // return person.female;
+      // });
+
+      // use map method to make a new array that contain only the name of the sibling
+      // map method takes a function as a parameter and runs that function on all elements of the array
+      // the function takes a single parameter, person, that represents the current element kinda like
+      // an enhanced for loop in java for(Integer currentInt : arrayOfInts)
+      // here we chained the filter() and map() methods to first filter out all non females and then use map() to display the females left in divs
+      var siblingsListItem = siblings.filter(function(person){
+        return person.female;
+      })
+      .map(function(person){
+
+        // return a div that has the sibling's name by accessing the name on the object using dot notation
+        // the console will tell you that each element needs a "key"
+        // keys tell react about the identity of a component, so it can maontain the state across re-renders
+        // if you change the key of a component, that component will be destroyed and recreated
+        // we have a "key" property in the div so that REACT can keep track of each element. That is why each object in
+        // the siblings array has an id field
+        return <div key={person.id}>{person.name}</div>
+
+      });
+
+
+      // the content that is actually rendered to the DOM (appears on the web page)
+      return(
+        // a div containing the entire array of sibling names we got using the map() method
+        // Don't need a loop to print out the names, this will print out all the names, because that is javascript
+        <div>{siblingsListItem}</div>
+      );
+    }
+
+    // Alternative FamilyList component - see above comments on the filter() and map() method chaining
+    // function FamilyList(props){
+    //   return <div>{props.siblings.filter(function(person){
+    //     return person.female;
+    //   })
+    //   .map(function(person){
+    //     return <div key={person.id}>{person.name}</div>
+    //   })
+    //
+    // }
+    //
+    //   </div>
+    // };
+
+    // ARRAY OF OBJECTS - 3 PROPS (ID, NAME AND FEMALE) 3 VALUES (NUMBER, STRING, BOOLEAN)
+    var siblings = [{id: 1, name: 'Chris', female: false}, {id: 2, name: 'Jeff', female: false},
+              {id: 3, name: 'Julie', female: true}, {id: 4, name: 'Jessica', female: true}];
+
+
+    ReactDOM.render(
+      <FamilyList siblings={siblings}/>
+      ,
+      document.getElementById("app")
+    );
+  </script>
+
+</body>
+</html>
