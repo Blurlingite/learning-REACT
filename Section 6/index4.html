@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Styling Components</title>
+</head>
+<body>
+  <div id="app">React has not rendered yet</div>
+
+<!--  Challenge: Create 1 component using props to print out the 7 colors  -->
+  <script type="text/babel">
+
+    var colors = [{id: 1, color: "red", name: "red"}, {id: 2, color: "orange", name: "orange"},
+      {id: 3, color: "yellow", name: "yellow"}, {id: 4, color: "green", name: "green"},
+      {id: 5, color: "blue", name: "blue"}, {id: 6, color: "indigo", name: "indigo"},
+      {id: 7, color: "violet", name: "violet"}];
+
+
+
+  class Color extends React.Component{
+
+
+    render(){
+
+      var colorItems = this.props.colors.map(function(currentColor){
+      // we put ColorStyle in the colorItems variable so we can assign the
+      // backgroundColor to the currentColor's color
+      // the map() method goes through each color object in the array
+      // Each one has a color field with a certain value
+      // We access the element's color and assign it to backgroundColor
+      var ColorStyle = {
+        marginBottom: 20,
+        height: 50,
+        width: 150,
+        fontSize: 22,
+        backgroundColor: currentColor.color
+      };
+
+      // this is what the colorItems variable will return
+      return <div style = {ColorStyle} key ={currentColor.id}>{currentColor.name}</div>
+    });
+
+      // our render() method will print out the whole array we got from the map() method
+      return(
+        <h1>{colorItems}</h1>
+      );
+    }
+  }
+
+
+
+  ReactDOM.render(
+    // we pass in the colors array
+    // From here, we go to the Color class component
+    // Within that class, we can take the original colors array and modify it and change how we display each color
+    // Then it will be printed onto the web page
+      <Color colors = {colors}/>
+
+    ,
+    document.getElementById("app")
+  );
+
+
+
+
+
+  </script>
+</body>
+</html>
