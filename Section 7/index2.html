@@ -1,0 +1,67 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>LifeWarnings</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+    class LifeWarnings extends React.Component{
+
+      handleButtonStove(){
+        alert('Ouch!');
+      }
+
+      handleButtonSlurpee(){
+        alert('Brain freeze!');
+      }
+
+      render(){
+        return(
+        <div>
+          <h1>Life Warnings</h1>
+          // the onclick event handler must be in camelcase in React
+          // event handlers in React take functions instead of strings like in regular js
+          // we follow this naming convention for handleButtonEdit:
+          // 1) must start with "on" or "handle"
+          // 2) Name of the DOM element (button)
+          // 3) What it does (edit)
+
+          // we need the "this" keyword because the render() method does not have access
+          // to the event handler methods even though they are part of the same class
+          <button onMouseEnter={this.handleButtonStove}>Touch Stove</button>
+          <button onMouseEnter={this.handleButtonSlurpee}>Drink Slurpee Fast</button>
+
+          </div>
+        );
+      }
+    }
+
+
+    ReactDOM.render(
+
+      <LifeWarnings/>
+
+
+      ,
+      document.getElementById("app")
+    );
+  </script>
+
+</body>
+</html>
