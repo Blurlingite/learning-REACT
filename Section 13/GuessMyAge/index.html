@@ -1,0 +1,226 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Guessing Game</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+
+// VERSION 1
+
+  // // the h2 is holding our initial state --> this.state.age
+  //   class GuessAge extends React.Component{
+  //
+  // // when an object is created using a class in javascript, javascript invokes the constructor function
+  // // REACT will invoke the constructor with the props and context of the component (the GuessAge component in this case)
+  // // it's important we use super when we define a constructor function so REACT can execute some necessary setup code for our component
+  // // if you would like to set a property or access "this" inside the constructor, you need to call super()
+  // // if a component doesn't use props or context, it's ok not to pass those along
+  //     constructor(props){
+  //       super(props);
+  //
+  //       // set the state for our component
+  //       // this is the only time we will set the state within our component
+  //       // when you call this.state.age below it will get the text here age: 'Guess My Age' and print it out in the browser
+  //       this.state = {
+  //         age: 'Guess My Age'
+  //       };
+  //
+  //       // we need this line here b/c properties of the class (the onButtonClick function within this class) do not automatically bind to the REACT class instance (<GuessAge/>)
+  //       // so when we attach onClick to the button below, it will not know the context, and will return null
+  //       // we are saying that "this.onButtonClick" will get the context of the class it is in (GuessAge)
+  //       // anytime we make our own component methods for ES6 component we have to bind "this"
+  //       // now when this.onButtonClick executes, "this" will reference the component instead of null
+  //       this.onButtonClick = this.onButtonClick.bind(this);
+  //     }
+  //
+  //     // setState is a reserved word in REACT
+  //     // we will use it to change our state
+  //     // you will pass in a javascript object so we can change what "age" will be when printed out to the browser
+  //     onButtonClick(){
+  //       this.setState({
+  //         age: '37 '
+  //       });
+  //     }
+  //
+  //     render(){
+  //       return(
+  //         <div>
+  //           <h1>Guessing Game</h1>
+  //           <h2>{this.state.age}</h2>
+  //
+  //           // use "this" for context
+  //           <button onClick={this.onButtonClick}>reveal my age</button>
+  //         </div>
+  //
+  //       );
+  //     }
+  //   }
+
+
+
+
+
+
+
+  // VERSION 2
+
+  // // the h2 is holding our initial state --> this.state.age
+  //   class GuessAge extends React.Component{
+  //
+  // // when an object is created using a class in javascript, javascript invokes the constructor function
+  // // REACT will invoke the constructor with the props and context of the component (the GuessAge component in this case)
+  // // it's important we use super when we define a constructor function so REACT can execute some necessary setup code for our component
+  // // if you would like to set a property or access "this" inside the constructor, you need to call super()
+  // // if a component doesn't use props or context, it's ok not to pass those along
+  //     constructor(props){
+  //       super(props);
+  //
+  //       // set the state for our component
+  //       // this is the only time we will set the state within our component
+  //       // when you call this.state.age below it will get the text here age: 'Guess My Age' and print it out in the browser
+  //       this.state = {
+  //         age: 'Guess My Age'
+  //       };
+  //
+  //       // we need this line here b/c properties of the class (the onButtonClick function within this class) do not automatically bind to the REACT class instance (<GuessAge/>)
+  //       // so when we attach onClick to the button below, it will not know the context, and will return null
+  //       // we are saying that "this.onButtonClick" will get the context of the class it is in (GuessAge)
+  //       // anytime we make our own component methods for ES6 component we have to bind "this"
+  //       // now when this.onButtonClick executes, "this" will reference the component instead of null
+  //       this.onButtonClick = this.onButtonClick.bind(this);
+  //     }
+  //
+  //     // setState is a reserved word in REACT
+  //     // we will use it to change our state
+  //     // you will pass in a javascript object so we can change what "age" will be when printed out to the browser
+  //     onButtonClick(){
+  //       this.setState({
+  //         age: '37 '
+  //       });
+  //     }
+  //
+  //     render(){
+  //       return(
+  //         <div>
+  //           <h1>Guessing Game</h1>
+  //           <h2>{this.state.age}</h2>
+  //
+  //           // since "this" already references the component, we can bind it here instead of in the constructor of the component
+  //           <button onClick={this.onButtonClick.bind(this)}>reveal my age</button>
+  //         </div>
+  //
+  //       );
+  //     }
+  //   }
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //   ReactDOM.render(
+  //
+  //     <GuessAge/>
+  //     ,
+  //     document.getElementById("app")
+  //   );
+
+
+
+
+
+
+
+// VERSION 3
+
+// the h2 is holding our initial state --> this.state.age
+  class GuessAge extends React.Component{
+
+// when an object is created using a class in javascript, javascript invokes the constructor function
+// REACT will invoke the constructor with the props and context of the component (the GuessAge component in this case)
+// it's important we use super when we define a constructor function so REACT can execute some necessary setup code for our component
+// if you would like to set a property or access "this" inside the constructor, you need to call super()
+// if a component doesn't use props or context, it's ok not to pass those along
+    constructor(props){
+      super(props);
+
+      // set the state for our component
+      // this is the only time we will set the state within our component
+      // when you call this.state.age below it will get the text here age: 'Guess My Age' and print it out in the browser
+      this.state = {
+        age: 'Guess My Age'
+      };
+
+      // we need this line here b/c properties of the class (the onButtonClick function within this class) do not automatically bind to the REACT class instance (<GuessAge/>)
+      // so when we attach onClick to the button below, it will not know the context, and will return null
+      // we are saying that "this.onButtonClick" will get the context of the class it is in (GuessAge)
+      // anytime we make our own component methods for ES6 component we have to bind "this"
+      // now when this.onButtonClick executes, "this" will reference the component instead of null
+      this.onButtonClick = this.onButtonClick.bind(this);
+    }
+
+    // setState is a reserved word in REACT
+    // we will use it to change our state
+    // you will pass in a javascript object so we can change what "age" will be when printed out to the browser
+    onButtonClick(){
+      this.setState({
+        age: '37 '
+      });
+    }
+
+    render(){
+      return(
+        <div>
+          <h1>Guessing Game</h1>
+          <h2>{this.state.age}</h2>
+
+          // () => is fat arrow syntax. Fat Arrow preserves the context of "this", which is the GuessAge component
+          <button onClick={() => this.onButtonClick()}>reveal my age</button>
+        </div>
+
+      );
+    }
+  }
+
+
+
+
+
+
+
+  ReactDOM.render(
+
+    <GuessAge/>
+    ,
+    document.getElementById("app")
+  );
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>

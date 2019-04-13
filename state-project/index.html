@@ -1,0 +1,97 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Boiler Plate Code</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+// Create a class component b/c we are dealing with state
+
+// The Total:  will hold our state
+// in "this.state" in the constructor, as long as it matches the name you gave in the return statement in this class, you can access it
+// in "onButtonAdd" we set votes equal to the current amount of votes indiciated by this.state.votes and add 1 to it
+// "onButtonAdd" will increase the number of votes by 1 when you click the button
+class DinnerVote extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      votes: 0
+    };
+
+// we must manually bind "this" to our buttons' functions so they know to where to get the state (the "votes" property which we assigned to this.state in the constructor)
+    this.onButtonAdd = this.onButtonAdd.bind(this);
+    this.onButtonSubtract = this.onButtonSubtract.bind(this);
+  }
+
+  onButtonAdd(){
+    this.setState({
+      votes: this.state.votes + 1
+    });
+  }
+
+  onButtonSubtract(){
+    this.setState({
+      votes: this.state.votes -1
+    })
+  }
+
+  render(){
+    var dinnerVoteStyle = {
+      display: "inline-block",
+      textAlign: "center",
+      margin: 20,
+      height: 500,
+      width: 300,
+      padding: 0
+    }
+
+    var foodStyle = {
+      height: 200,
+      width: 200,
+      marginTop: 20
+    }
+    return(
+      <div style = {dinnerVoteStyle}>
+        <img src={this.props.img} alt="food image" style={foodStyle}/>
+        <p>Vote Here If You Want This</p>
+        <button onClick={this.onButtonAdd}>+1</button>
+        <p>Vote Here If You Do Not Want This</p>
+        <button onClick={this.onButtonSubtract}>-1</button>
+        <p>Total: {this.state.votes}</p>
+      </div>
+    );
+  }
+}
+
+    ReactDOM.render(
+
+      <div>
+        <DinnerVote img="https://thecrumbykitchen.com/wp-content/uploads/2015/07/Dulce-de-Leche-Ice-Cream-5.jpg"/>
+        <DinnerVote img="https://thecrumbykitchen.com/wp-content/uploads/2015/07/Dulce-de-Leche-Ice-Cream-5.jpg"/>
+        <DinnerVote img="https://thecrumbykitchen.com/wp-content/uploads/2015/07/Dulce-de-Leche-Ice-Cream-5.jpg"/>
+
+      </div>
+
+      ,
+      document.getElementById("app")
+    );
+  </script>
+
+</body>
+</html>
