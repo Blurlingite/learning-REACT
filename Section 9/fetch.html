@@ -1,0 +1,114 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Fetch</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+
+  <!-- this.state is set to an empty array called "items" because
+we are getting an array of items from an API called SWAPI -->
+  <script type="text/babel">
+
+
+  class App extends React.Component{
+    constructor(props){
+      super(props);
+
+      this.state = {
+        items: []
+      };
+    }
+
+// componentDidMount is a lifecycle method that will
+// let you use AJAX calls to load data for your component
+// you can call setState in this method as well
+
+// we will pass the SWAPI endpoint into the fetch()
+
+// fetch() takes 1 mandatory argument, the path to the resource you want to fetch.
+// It returns a promise that resolves to the Response to that request, whether successful or not
+
+// The promise object is the completed event or failure of an asynchronous operation and it's value
+
+// we use .then to say what we want to do when this promise is kept
+
+// function(response){} is what we want to do. The "response" parameter represents the
+// data we get from the API. That data will be passed in here
+// we will use a return statement to turn that response into JSON, so we can use the data
+componentDidMount(){
+  fetch('http://swapi.co/api/people/')
+  // .then(function(response){
+  //
+  //   return response.json()
+  // })
+
+// we are using fat arrow notation here
+// response => response.json() is the same as
+// function(response){
+//
+//   return response.json()
+// }
+
+// I guess the => is like "function" and the variable before it, is what you would pass in?
+
+// after that we take that data using fat arrow notation and put it in a new variable we made up called "responseData"
+// while taking responseData, we set the state (the "items" field in the constructor) to the "results" of the responseData variable
+// "results" is what it is called in the SWAPI
+// "responseData" is all the promise you get back. If you want the data from that promise, you
+// must use responseData.results
+
+// the .catch executes when there is an error getting the data
+  .then(response => response.json())
+  .then(responseData => {
+    this.setState({
+      items: responseData.results
+    });
+  })
+  .catch(error => {
+    console.log('Fetching and parsing data error', error)
+  });
+}
+
+// we do items.map and pass in a function to perform on every element in the array (because of the .map)
+// each element in the array will be passed into the "item" parameter one by one
+// we access the current item's name with item.name
+// we assign item.name (because it is unique) to the key because we need a key value so the browser knows which object it has
+    render(){
+      let items = this.state.items;
+      console.log(items);
+      return(
+        <div>
+          {items.map(function(item){
+            return <h4 key={item.name}>{item.name} has an eye color of {item.eye_color}</h4>
+          })
+
+          }
+        </div>
+      );
+    }
+  }
+    ReactDOM.render(
+
+      <App/>
+      ,
+      document.getElementById("app")
+    );
+  </script>
+
+</body>
+</html>
