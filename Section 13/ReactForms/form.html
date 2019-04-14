@@ -1,0 +1,91 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Boiler Plate Code</title>
+</head>
+<body>
+
+  <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+  <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+
+  <!-- "onChange" fires with every keystroke. We want this to update our state with
+every keystroke of the user. We will use this.handleChange -->
+
+<!-- We gave the form an "onSubmit" so that when the form is submitted, you can collect the data and do something with it
+The this.handleSubmit will run a function when the form is submitted -->
+
+<!-- the "target" in handleChange will return the object that triggered the event and will
+get the value (because we named the field "value" in the constructor)
+
+event -> the name of the parameter we passed in, can be any name you want, doesn't have to be "event"
+target -> retrieves the object that triggered the event (in this case, adding text to the input text box on the web page)
+value -> what you named the field in the constructor in this.state   Right now it is an empty string
+
+-->
+
+<!-- event.preventDefault() in the handleSubmit function will stop the page from reloading (when we submit the form)
+and we do not want it to reload the page. We just want it to submit the state (user input into the input text box) that the user provided-->
+
+  <script type="text/babel">
+
+    class NameForm extends React.Component{
+
+      constructor(props){
+        super(props);
+        this.state = {
+          value: ''
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+      handleChange(event){
+        this.setState({
+          value: event.target.value
+        })
+      }
+
+      handleSubmit(event){
+
+        alert('A name was submitted ' + this.state.value);
+        event.preventDefault();
+      }
+      render(){
+        return(
+          <form onSubmit = {this.handleSubmit}>
+            <label>
+              Name:
+              <input type="text" value={this.state.value} onChange={this.handleChange}/>
+            </label>
+
+            <input type="submit" value="Submit"/>
+
+          </form>
+        );
+      }
+    }
+
+
+    ReactDOM.render(
+
+      <NameForm/>
+
+      ,
+      document.getElementById("app")
+    );
+  </script>
+
+</body>
+</html>
